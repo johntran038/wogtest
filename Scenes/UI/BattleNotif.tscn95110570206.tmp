@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxxsy3vo3kw1w"]
+
+[ext_resource type="Script" uid="uid://5d17wb1rrqkl" path="res://Scripts/Battle/battle_notif.gd" id="1_al6t2"]
+[ext_resource type="PackedScene" uid="uid://beqxjo2otsj0p" path="res://Scenes/UI/AnimationComponent.tscn" id="2_rjtuw"]
+[ext_resource type="Script" uid="uid://bpd1ebshs2c0c" path="res://Scripts/Animation/animated_battle_notif.gd" id="3_3m0a8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al6t2"]
+bg_color = Color(0.784314, 0.784314, 0.117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m0a8"]
+bg_color = Color(0.784314, 0.784314, 0.117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjtuw"]
+bg_color = Color(0.470588, 0.470588, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m0a8"]
+size = Vector2(190, 281)
+
+[node name="BattleNotif" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 2
+size_flags_vertical = 6
+mouse_filter = 2
+script = ExtResource("1_al6t2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(96, 166)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_right = 190.0
+offset_bottom = 281.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 200
+theme_override_styles/hover = SubResource("StyleBoxFlat_al6t2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3m0a8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rjtuw")
+text = "i"
+
+[node name="AnimatedBattleNotif" parent="Button" instance=ExtResource("2_rjtuw")]
+script = ExtResource("3_3m0a8")
+pressed_time = 0.1
+pressed_transition = 0
+pressed_easing = 0
+pressed_position = Vector2(-400, 0)
+pressed_scale = Vector2(1, 1)
+pressed_rotation = 0.0
+pressed_size = Vector2(0, 0)
+pressed_modulate = Color(1, 1, 1, 1)
+hover_time = 0.4
+hover_transition = 10
+hover_easing = 2
+hover_scale = Vector2(1.2, 1.2)
+
+[node name="BattleOptions" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(95, 140.5)
+shape = SubResource("RectangleShape2D_3m0a8")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

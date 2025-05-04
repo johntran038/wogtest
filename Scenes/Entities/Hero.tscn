@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://n4xi87wby3ds"]
+
+[ext_resource type="Script" uid="uid://bbqmc6p8dg8bj" path="res://Scripts/Entities/hero.gd" id="1_5lrjv"]
+[ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="2_tqyp2"]
+[ext_resource type="PackedScene" uid="uid://244cyir56hrk" path="res://States/StateUtils/StateMachine.tscn" id="3_tqyp2"]
+[ext_resource type="Script" uid="uid://dkfd0w7ci5v80" path="res://States/HeroStates/hero_walk_state.gd" id="4_fdo3t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d235u"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce415"]
+atlas = ExtResource("2_tqyp2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o40e8"]
+atlas = ExtResource("2_tqyp2")
+region = Rect2(0, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63mf6"]
+animations = [{
+"frames": [{
+"duration": 12.0,
+"texture": SubResource("AtlasTexture_ce415")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o40e8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Hero" type="CharacterBody2D"]
+script = ExtResource("1_5lrjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_d235u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_63mf6")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.672097
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_State") instance=ExtResource("3_tqyp2")]
+initial_State = NodePath("Walk")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_fdo3t")

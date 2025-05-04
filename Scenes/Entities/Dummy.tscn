@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuwhb872e8pcd"]
+
+[ext_resource type="Script" uid="uid://ctwuxesv4kwu5" path="res://Scripts/Entities/dummy.gd" id="1_s2l5p"]
+[ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="2_4js3i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d235u"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2l5p"]
+atlas = ExtResource("2_4js3i")
+region = Rect2(0, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63mf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2l5p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Dummy" type="CharacterBody2D"]
+script = ExtResource("1_s2l5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_d235u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_63mf6")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.672097

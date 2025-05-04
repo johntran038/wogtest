@@ -1,0 +1,157 @@
+[gd_scene load_steps=10 format=4 uid="uid://bt3i84esun2k5"]
+
+[ext_resource type="Script" uid="uid://dquxvq1d06ia5" path="res://Scripts/Battle/battle_env.gd" id="1_xydr1"]
+[ext_resource type="Texture2D" uid="uid://dr7gb1ykxcqx4" path="res://Assets/testing123.png" id="2_lhbbc"]
+[ext_resource type="Script" uid="uid://co8g8yfm1q0o3" path="res://Scripts/Battle/battle_map.gd" id="3_cn0b1"]
+[ext_resource type="Script" uid="uid://b4xkkg0g4puex" path="res://Global/turn_order_manager.gd" id="4_j0rcu"]
+[ext_resource type="PackedScene" uid="uid://cl3pi8ag4lb4n" path="res://Scenes/UI/TileSpawner.tscn" id="5_0jppj"]
+[ext_resource type="PackedScene" uid="uid://cuwhb872e8pcd" path="res://Scenes/Entities/Dummy.tscn" id="6_82idp"]
+[ext_resource type="PackedScene" uid="uid://bxxsy3vo3kw1w" path="res://Scenes/UI/BattleNotif.tscn" id="7_lhbbc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bauv2"]
+texture = ExtResource("2_lhbbc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f0gx1"]
+sources/0 = SubResource("TileSetAtlasSource_bauv2")
+
+[node name="BattleEnv" type="Node2D"]
+script = ExtResource("1_xydr1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(84, 44)
+zoom = Vector2(4, 4)
+
+[node name="BattleMap" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAIAAAAFAAUAAAACAAIAAAAFAAUAAAABAAIAAAAFAAUAAAADAAIAAAAFAAUAAAAEAAIAAAAFAAUAAAAFAAIAAAAFAAUAAAAGAAIAAAAFAAUAAAAHAAIAAAAFAAUAAAAHAAMAAAAFAAUAAAAGAAMAAAAFAAUAAAAFAAMAAAAFAAUAAAAEAAMAAAAFAAUAAAADAAMAAAAFAAUAAAACAAMAAAAFAAUAAAABAAMAAAAFAAUAAAAAAAMAAAAFAAUAAAAAAAQAAAAFAAUAAAABAAQAAAAFAAUAAAACAAQAAAAFAAUAAAADAAQAAAAFAAUAAAAEAAQAAAAFAAUAAAAFAAQAAAAFAAUAAAAGAAQAAAAFAAUAAAAHAAQAAAAFAAUAAAAIAAQAAAAFAAUAAAAIAAMAAAAFAAUAAAAJAAMAAAAFAAUAAAAJAAIAAAAFAAUAAAAIAAIAAAAFAAUAAAAIAAEAAAAFAAUAAAAHAAEAAAAFAAUAAAAGAAEAAAAFAAUAAAAFAAEAAAAFAAUAAAAEAAEAAAAFAAUAAAADAAEAAAAFAAUAAAACAAEAAAAFAAUAAAABAAEAAAAFAAUAAAAAAAEAAAAFAAUAAAAJAAEAAAAFAAUAAAAJAAQAAAAFAAUAAAAAAAAAAAAFAAUAAAABAAAAAAAFAAUAAAACAAAAAAAFAAUAAAADAAAAAAAFAAUAAAAEAAAAAAAFAAUAAAAFAAAAAAAFAAUAAAAGAAAAAAAFAAUAAAAHAAAAAAAFAAUAAAAIAAAAAAAFAAUAAAAJAAAAAAAFAAUAAAAKAAAAAAAFAAUAAAAKAAEAAAAFAAUAAAAKAAIAAAAFAAUAAAAKAAMAAAAFAAUAAAAKAAQAAAAFAAUAAAAAAP//AAAFAAUAAAABAP//AAAFAAUAAAACAP//AAAFAAUAAAADAP//AAAFAAUAAAAEAP//AAAFAAUAAAAFAP//AAAFAAUAAAAGAP//AAAFAAUAAAAHAP//AAAFAAUAAAAIAP//AAAFAAUAAAAJAP//AAAFAAUAAAAKAP//AAAFAAUAAAAKAAUAAAAFAAUAAAAJAAUAAAAFAAUAAAAIAAUAAAAFAAUAAAAHAAUAAAAFAAUAAAAGAAUAAAAFAAUAAAAFAAUAAAAFAAUAAAABAAUAAAAFAAUAAAAAAAUAAAAFAAUAAAACAAUAAAAFAAUAAAADAAUAAAAFAAUAAAAEAAUAAAAFAAUAAAAAAAYAAAAFAAUAAAABAAYAAAAFAAUAAAACAAYAAAAFAAUAAAADAAYAAAAFAAUAAAAEAAYAAAAFAAUAAAAFAAYAAAAFAAUAAAAGAAYAAAAFAAUAAAAHAAYAAAAFAAUAAAAIAAYAAAAFAAUAAAAJAAYAAAAFAAUAAAAKAAYAAAAFAAUAAAALAAYAAAAFAAUAAAALAAUAAAAFAAUAAAALAAQAAAAFAAUAAAALAAMAAAAFAAUAAAALAAIAAAAFAAUAAAALAAEAAAAFAAUAAAALAAAAAAAFAAUAAAALAP//AAAFAAUAAAALAP7/AAAFAAUAAAAKAP7/AAAFAAUAAAAJAP7/AAAFAAUAAAAIAP7/AAAFAAUAAAAHAP7/AAAFAAUAAAAGAP7/AAAFAAUAAAAFAP7/AAAFAAUAAAAEAP7/AAAFAAUAAAADAP7/AAAFAAUAAAACAP7/AAAFAAUAAAABAP7/AAAFAAUAAAAAAP7/AAAFAAUAAAAAAAcAAAABAAIAAAABAAcAAAABAAIAAAACAAcAAAABAAIAAAADAAcAAAABAAIAAAAEAAcAAAABAAIAAAAFAAcAAAABAAIAAAAGAAcAAAABAAIAAAAHAAcAAAABAAIAAAAIAAcAAAABAAIAAAAJAAcAAAABAAIAAAAKAAcAAAABAAIAAAALAAcAAAABAAIAAAAMAAYAAAACAAEAAAAMAAUAAAACAAEAAAAMAAQAAAACAAEAAAAMAAMAAAACAAEAAAAMAAIAAAACAAEAAAAMAAEAAAACAAEAAAAMAAAAAAACAAEAAAAMAP//AAACAAEAAAAMAP7/AAACAAEAAAALAP3/AAABAAAAAAAKAP3/AAABAAAAAAAJAP3/AAABAAAAAAAIAP3/AAABAAAAAAAHAP3/AAABAAAAAAAGAP3/AAABAAAAAAAFAP3/AAABAAAAAAAEAP3/AAABAAAAAAADAP3/AAABAAAAAAACAP3/AAABAAAAAAABAP3/AAABAAAAAAAAAP3/AAABAAAAAAD///7/AAAAAAEAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAAAAAEAAAD//wIAAAAAAAEAAAD//wMAAAAAAAEAAAD//wQAAAAAAAEAAAD//wUAAAAAAAEAAAD//wYAAAAAAAEAAAD//wcAAAAAAAIAAAD///3/AAAAAAAAAAAMAP3/AAACAAAAAAAMAAcAAAACAAIAAAA=")
+tile_set = SubResource("TileSet_f0gx1")
+script = ExtResource("3_cn0b1")
+
+[node name="OccupiedSpace" type="Node" parent="."]
+
+[node name="Dummy" parent="OccupiedSpace" instance=ExtResource("6_82idp")]
+position = Vector2(152, 24)
+
+[node name="TurnOrderManager" type="Node" parent="."]
+script = ExtResource("4_j0rcu")
+
+[node name="HeroSpawners" type="Node" parent="."]
+
+[node name="frontline" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(40, 55)
+map = NodePath("../../BattleMap")
+
+[node name="frontline2" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(41, 25)
+map = NodePath("../../BattleMap")
+
+[node name="frontline3" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(40, -8)
+map = NodePath("../../BattleMap")
+
+[node name="frontline4" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(40, 88)
+map = NodePath("../../BattleMap")
+
+[node name="backline" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(8, 55)
+map = NodePath("../../BattleMap")
+
+[node name="backline2" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(6, 25)
+map = NodePath("../../BattleMap")
+
+[node name="backline3" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(8, -8)
+map = NodePath("../../BattleMap")
+
+[node name="backline4" parent="HeroSpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(8, 88)
+map = NodePath("../../BattleMap")
+
+[node name="EnemySpawners" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 209.0
+offset_top = -37.0
+offset_right = 254.0
+offset_bottom = -6.0
+text = "Next"
+
+[node name="BattleNotif" parent="." instance=ExtResource("7_lhbbc")]
+offset_left = 147.0
+offset_right = 147.0
+scale = Vector2(0.05, 0.05)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

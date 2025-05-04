@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1twgm4mauvdc"]
+
+[ext_resource type="Script" uid="uid://b3cwm0qergvy1" path="res://Scripts/Battle/distance_bar.gd" id="1_qbuad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wo4ai"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkhin"]
+bg_color = Color(0.909085, 0.79892, 3.85046e-07, 1)
+
+[node name="DistanceBar" type="ProgressBar"]
+offset_left = -10.0
+offset_top = -1.0
+offset_right = 190.0
+offset_bottom = 22.0
+scale = Vector2(0.1, 0.1)
+theme_override_styles/background = SubResource("StyleBoxFlat_wo4ai")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wkhin")
+value = 100.0
+script = ExtResource("1_qbuad")
