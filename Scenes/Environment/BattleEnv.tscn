@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bt3i84esun2k5"]
+[gd_scene load_steps=9 format=4 uid="uid://bt3i84esun2k5"]
 
 [ext_resource type="Script" uid="uid://dquxvq1d06ia5" path="res://Scripts/Battle/battle_env.gd" id="1_xydr1"]
 [ext_resource type="Texture2D" uid="uid://dr7gb1ykxcqx4" path="res://Assets/testing123.png" id="2_lhbbc"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://b4xkkg0g4puex" path="res://Global/turn_order_manager.gd" id="4_j0rcu"]
 [ext_resource type="PackedScene" uid="uid://cl3pi8ag4lb4n" path="res://Scenes/UI/TileSpawner.tscn" id="5_0jppj"]
 [ext_resource type="PackedScene" uid="uid://cuwhb872e8pcd" path="res://Scenes/Entities/Dummy.tscn" id="6_82idp"]
-[ext_resource type="PackedScene" uid="uid://bxxsy3vo3kw1w" path="res://Scenes/UI/BattleNotif.tscn" id="7_lhbbc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bauv2"]
 texture = ExtResource("2_lhbbc")
@@ -98,13 +97,13 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAFAAUAAAACAAIAAAAFAAUAAAABAAIAAAAFAAU
 tile_set = SubResource("TileSet_f0gx1")
 script = ExtResource("3_cn0b1")
 
+[node name="TurnOrderManager" type="Node" parent="."]
+script = ExtResource("4_j0rcu")
+
 [node name="OccupiedSpace" type="Node" parent="."]
 
 [node name="Dummy" parent="OccupiedSpace" instance=ExtResource("6_82idp")]
 position = Vector2(152, 24)
-
-[node name="TurnOrderManager" type="Node" parent="."]
-script = ExtResource("4_j0rcu")
 
 [node name="HeroSpawners" type="Node" parent="."]
 
@@ -148,10 +147,5 @@ offset_top = -37.0
 offset_right = 254.0
 offset_bottom = -6.0
 text = "Next"
-
-[node name="BattleNotif" parent="." instance=ExtResource("7_lhbbc")]
-offset_left = 147.0
-offset_right = 147.0
-scale = Vector2(0.05, 0.05)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

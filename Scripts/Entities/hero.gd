@@ -6,7 +6,8 @@ class_name Hero
 
 const MOVEMENT_SPEED = 120.0
 var battle_position = "frontline"
-var hp = 100
+
+
 var strength = 10
 var speed = 1
 

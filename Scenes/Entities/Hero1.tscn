@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7hmdi60fcv5q"]
+[gd_scene load_steps=14 format=3 uid="uid://b7hmdi60fcv5q"]
 
 [ext_resource type="Script" uid="uid://dycksk63qypxi" path="res://Scripts/Entities/hero1.gd" id="1_v3sdj"]
 [ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="2_3e88n"]
 [ext_resource type="PackedScene" uid="uid://244cyir56hrk" path="res://States/StateUtils/StateMachine.tscn" id="3_jgjdp"]
 [ext_resource type="Script" uid="uid://dkfd0w7ci5v80" path="res://States/HeroStates/hero_walk_state.gd" id="4_ofxge"]
 [ext_resource type="PackedScene" uid="uid://172kfp62bprd" path="res://Scenes/BattleActions/Attack.tscn" id="5_3e88n"]
-[ext_resource type="Script" uid="uid://bmgobjhtrd80r" path="res://Scripts/Actions/basic_melee.gd" id="6_jgjdp"]
-[ext_resource type="Script" uid="uid://b105tni7eng6j" path="res://Scripts/Actions/basic_ranged.gd" id="7_ofxge"]
+[ext_resource type="Script" uid="uid://bmgobjhtrd80r" path="res://Scripts/Actions/Generic/basic_melee.gd" id="6_jgjdp"]
+[ext_resource type="Script" uid="uid://b105tni7eng6j" path="res://Scripts/Actions/Generic/basic_ranged.gd" id="7_ofxge"]
+[ext_resource type="Script" uid="uid://cjsno8ok5i41s" path="res://Scripts/Actions/Generic/special_melee.gd" id="8_1ms84"]
+[ext_resource type="Script" uid="uid://w2xqt3cr5r8b" path="res://Scripts/Actions/Generic/special_ranged.gd" id="9_wlo3r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d235u"]
 radius = 6.0
@@ -61,7 +63,17 @@ script = ExtResource("6_jgjdp")
 [node name="BasicRanged" parent="Abilities" instance=ExtResource("5_3e88n")]
 script = ExtResource("7_ofxge")
 
+[node name="SpecialMelee" parent="Abilities" instance=ExtResource("5_3e88n")]
+script = ExtResource("8_1ms84")
+
+[node name="SpecialRanged" parent="Abilities" instance=ExtResource("5_3e88n")]
+script = ExtResource("9_wlo3r")
+
 [connection signal="body_entered" from="Abilities/BasicMelee" to="Abilities/BasicMelee" method="_on_body_entered"]
 [connection signal="body_exited" from="Abilities/BasicMelee" to="Abilities/BasicMelee" method="_on_body_exited"]
 [connection signal="body_entered" from="Abilities/BasicRanged" to="Abilities/BasicRanged" method="_on_body_entered"]
 [connection signal="body_exited" from="Abilities/BasicRanged" to="Abilities/BasicRanged" method="_on_body_exited"]
+[connection signal="body_entered" from="Abilities/SpecialMelee" to="Abilities/SpecialMelee" method="_on_body_entered"]
+[connection signal="body_exited" from="Abilities/SpecialMelee" to="Abilities/SpecialMelee" method="_on_body_exited"]
+[connection signal="body_entered" from="Abilities/SpecialRanged" to="Abilities/SpecialRanged" method="_on_body_entered"]
+[connection signal="body_exited" from="Abilities/SpecialRanged" to="Abilities/SpecialRanged" method="_on_body_exited"]

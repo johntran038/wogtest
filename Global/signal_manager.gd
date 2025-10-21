@@ -1,6 +1,7 @@
 extends Node
 
 signal enter_attack_range
+signal exit_attack_range
 signal option_chosen
 
 var test = {

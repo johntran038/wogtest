@@ -1,4 +1,5 @@
 extends Hero
+
 func _ready() -> void:
 	super()
 	init()

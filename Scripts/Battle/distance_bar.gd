@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if TurnOrderManager.battle_has_started():
 		var max_distance = Global.get_tile_width(TurnOrderManager.turn_leader.speed/10)
 		var save_pos = TurnOrderManager.turn_leader_saved_position

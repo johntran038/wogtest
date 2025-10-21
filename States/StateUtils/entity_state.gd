@@ -15,4 +15,3 @@ func update(_delta: float):
 func physics_update(_delta: float):
 	if not entity_parent:
 		entity_parent = parent as Entity
-	pass

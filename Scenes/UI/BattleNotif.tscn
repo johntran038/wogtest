@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxxsy3vo3kw1w"]
+[gd_scene load_steps=13 format=3 uid="uid://bxxsy3vo3kw1w"]
 
 [ext_resource type="Script" uid="uid://5d17wb1rrqkl" path="res://Scripts/Battle/battle_notif.gd" id="1_al6t2"]
 [ext_resource type="PackedScene" uid="uid://beqxjo2otsj0p" path="res://Scenes/UI/AnimationComponent.tscn" id="2_rjtuw"]
 [ext_resource type="Script" uid="uid://bpd1ebshs2c0c" path="res://Scripts/Animation/animated_battle_notif.gd" id="3_3m0a8"]
+[ext_resource type="Texture2D" uid="uid://b8vbw7kbk5785" path="res://icon.svg" id="4_m8dpl"]
 [ext_resource type="Script" uid="uid://b3og0xt7x0dkh" path="res://Scripts/Animation/animated_battle_options.gd" id="4_s5mcg"]
 [ext_resource type="Script" uid="uid://d3qtftkxhd8xr" path="res://Scripts/Animation/slide_battle_notif.gd" id="5_vbk55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8dpl"]
+texture = ExtResource("4_m8dpl")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5mcg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -55,10 +59,12 @@ from_center = false
 
 [node name="BattleOptions" type="VBoxContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = 4
+z_as_relative = false
 layout_mode = 2
-offset_left = 209.994
+offset_left = 210.0
 offset_top = 283.0
-offset_right = 1244.99
+offset_right = 1245.0
 offset_bottom = 843.0
 scale = Vector2(1e-05, 0.5)
 pivot_offset = Vector2(584, 560)
@@ -68,7 +74,7 @@ layout_mode = 2
 focus_mode = 0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_s5mcg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m8dpl")
 text = " Basic Melee "
 
 [node name="Option2" type="Button" parent="BattleOptions"]
