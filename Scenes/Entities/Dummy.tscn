@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuwhb872e8pcd"]
+[gd_scene load_steps=7 format=3 uid="uid://cuwhb872e8pcd"]
 
 [ext_resource type="Script" uid="uid://ctwuxesv4kwu5" path="res://Scripts/Entities/dummy.gd" id="1_s2l5p"]
 [ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="2_4js3i"]
-[ext_resource type="Script" uid="uid://bnnwhxmkvh4y6" path="res://Scripts/Battle/battle_target.gd" id="3_ria71"]
-[ext_resource type="Script" uid="uid://xmu5unt2sp2g" path="res://Scripts/Battle/battle_option.gd" id="4_51ege"]
+[ext_resource type="PackedScene" uid="uid://dr4udyvn8svgr" path="res://Scenes/BattleActions/battle_target.tscn" id="3_ria71"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d235u"]
 radius = 7.0
@@ -37,61 +36,4 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.672097
 
-[node name="BattleTarget" type="Control" parent="."]
-z_index = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = -38.0
-offset_top = -45.0
-offset_right = 149.0
-offset_bottom = 29.0
-scale = Vector2(0.4, 0.4)
-script = ExtResource("3_ria71")
-
-[node name="HFlowContainer" type="HFlowContainer" parent="BattleTarget"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -12.5
-offset_top = 7.5
-offset_right = 15.5
-offset_bottom = 7.5
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-last_wrap_alignment = 1
-reverse_fill = true
-
-[node name="Basic1" type="Button" parent="BattleTarget/HFlowContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Basic1"
-script = ExtResource("4_51ege")
-
-[node name="Basic2" type="Button" parent="BattleTarget/HFlowContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Basic2"
-script = ExtResource("4_51ege")
-
-[node name="Special1" type="Button" parent="BattleTarget/HFlowContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Special1"
-script = ExtResource("4_51ege")
-
-[node name="Special2" type="Button" parent="BattleTarget/HFlowContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Special2"
-script = ExtResource("4_51ege")
-
-[connection signal="pressed" from="BattleTarget/HFlowContainer/Basic1" to="BattleTarget" method="_on_basic_1_pressed"]
-[connection signal="pressed" from="BattleTarget/HFlowContainer/Basic2" to="BattleTarget" method="_on_basic_2_pressed"]
-[connection signal="pressed" from="BattleTarget/HFlowContainer/Special1" to="BattleTarget" method="_on_special_1_pressed"]
-[connection signal="pressed" from="BattleTarget/HFlowContainer/Special2" to="BattleTarget" method="_on_special_2_pressed"]
+[node name="BattleTarget" parent="." instance=ExtResource("3_ria71")]

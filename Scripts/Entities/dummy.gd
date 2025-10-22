@@ -1,4 +1,4 @@
-extends Entity
+extends Enemy
 class_name Dummy
 
 @onready var basic_1: Button = $BattleTarget/HFlowContainer/Basic1

@@ -12,6 +12,7 @@ var area_of_attack
 func _ready() -> void:
 #	make all attacks in an "Abilities" Node2D
 #   parent = this attack < abilities < parent
+	TurnOrderManager.connect("new_turn", _on_new_turn)
 	parent = get_parent().get_parent()
 	action_type = "attack"
 	collision_shape_2d.shape.radius = range
@@ -19,3 +20,8 @@ func _ready() -> void:
 
 func get_range_by_tile(tiles):
 	return Global.get_tile_width(tiles+1)-8
+
+func _on_new_turn(old_turn_leader):
+	if TurnOrderManager.turn_leader != parent:
+		return
+	return get_overlapping_bodies()

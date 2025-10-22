@@ -56,15 +56,15 @@ func _sort_by_speed(a, b):
 
 func next_turn():
 	if turn_order.size() > 0:
-		var current_turn_taker = turn_order.pop_front()
-		turn_order.append(current_turn_taker)
+		var old_turn_taker = turn_order.pop_front()
+		turn_order.append(old_turn_taker)
 		
-		turn_taken.append(current_turn_taker)
+		turn_taken.append(old_turn_taker)
 		
 		turn_leader = turn_order[0]
 		turn_leader_saved_position = turn_leader.position
 		turn = turn + 1
-		new_turn.emit(current_turn_taker)
+		new_turn.emit(old_turn_taker)
 	else:
 		print("turn order empty")
 	

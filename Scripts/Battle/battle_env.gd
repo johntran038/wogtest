@@ -63,9 +63,9 @@ func set_distance_bar_to_leader(old_leader = null):
 
 
 
-################# test #################
 func _on_new_turn(old_leader) -> void:
 	set_distance_bar_to_leader(old_leader)
+	pass
 
 func _on_button_pressed() -> void:
 	TurnOrderManager.next_turn()
