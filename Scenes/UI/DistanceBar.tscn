@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1twgm4mauvdc"]
 
-[ext_resource type="Script" uid="uid://b3cwm0qergvy1" path="res://Scripts/Battle/distance_bar.gd" id="1_qbuad"]
+[ext_resource type="Script" uid="uid://b3cwm0qergvy1" path="res://Scripts/Battle/UI/distance_bar.gd" id="1_qbuad"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wo4ai"]
 

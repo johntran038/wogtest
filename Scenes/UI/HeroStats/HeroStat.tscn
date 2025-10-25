@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4jm0nl2vxrff"]
+
+[ext_resource type="Texture2D" uid="uid://5gklsdy0xnuy" path="res://Assets/TestCharacterUI.png" id="1_aludn"]
+[ext_resource type="Script" uid="uid://u8ukpjujo0c" path="res://Scripts/Battle/UI/hero_stat.gd" id="1_b1ncp"]
+[ext_resource type="Texture2D" uid="uid://b8vbw7kbk5785" path="res://icon.svg" id="2_b1ncp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnlhj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7ub5"]
+bg_color = Color(0.22531685, 0.8260092, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aludn"]
+bg_color = Color(1, 1, 0, 1)
+
+[node name="HeroStat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1ncp")
+
+[node name="Main UI Frame" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 205.0
+offset_bottom = 64.0
+texture = ExtResource("1_aludn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main UI Frame"]
+show_behind_parent = true
+layout_mode = 1
+offset_right = 109.0
+offset_bottom = 64.0
+
+[node name="ProfilePicture" type="TextureRect" parent="Main UI Frame/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_b1ncp")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main UI Frame/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="Main UI Frame/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="HeroName" type="Label" parent="Main UI Frame/HBoxContainer/VBoxContainer/MarginContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 11
+text = "Hero Name"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Main UI Frame/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+
+[node name="HPBar" type="ProgressBar" parent="Main UI Frame/HBoxContainer/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(121, 11)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_rnlhj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y7ub5")
+value = 86.0
+show_percentage = false
+
+[node name="MarginContainer3" type="MarginContainer" parent="Main UI Frame/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 12
+
+[node name="EnergyBar" type="ProgressBar" parent="Main UI Frame/HBoxContainer/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(121, 11)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_rnlhj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_aludn")
+max_value = 121.0
+value = 14.0
+show_percentage = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(103, 39)
+zoom = Vector2(5.4, 5.4)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 69.0
+offset_right = 128.0
+offset_bottom = 100.0
+text = "+1"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -57,7 +57,7 @@ func set_distance_bar_to_leader(old_leader = null):
 	var bar = preload("res://Scenes/UI/DistanceBar.tscn").instantiate()
 	var leader = TurnOrderManager.turn_leader
 	bar.position = bar.position - Vector2(0, 14)
-	bar.set_script(load("res://Scripts/Battle/distance_bar.gd"))
+	bar.set_script(load("res://Scripts/Battle/UI/distance_bar.gd"))
 	bar.name = "DistanceBar"
 	leader.add_child(bar)
 

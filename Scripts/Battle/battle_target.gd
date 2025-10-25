@@ -45,6 +45,8 @@ func show_battle_option(battle_info):
 func hide_battle_option(battle_info):
 	if battle_info.target != parent:
 		return
+	if !battle_options.has(battle_info.id_name):
+		return
 	var button = battle_options[battle_info.id_name]
 	hide_button(button)
 	battle_options[battle_info.id_name] = ""
