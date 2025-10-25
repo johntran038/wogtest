@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://b37t3treedbp3"]
+
+[ext_resource type="Script" uid="uid://nastx5xjuji0" path="res://Scripts/Entities/enemy.gd" id="1_8pk2c"]
+[ext_resource type="Texture2D" uid="uid://bj885biwmbjdn" path="res://Assets/Tiny Wizard.png" id="2_4h24d"]
+[ext_resource type="PackedScene" uid="uid://dr4udyvn8svgr" path="res://Scenes/BattleActions/battle_target.tscn" id="3_78wyn"]
+[ext_resource type="PackedScene" uid="uid://244cyir56hrk" path="res://States/StateUtils/StateMachine.tscn" id="4_bvdfj"]
+[ext_resource type="Script" uid="uid://biyrhccgxukyg" path="res://States/EnemyStates/enemy_walk_state.gd" id="5_4h24d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d235u"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5frw"]
+atlas = ExtResource("2_4h24d")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q7ut"]
+atlas = ExtResource("2_4h24d")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63mf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5frw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q7ut")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_8pk2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_d235u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_63mf6")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.8305467
+
+[node name="BattleTarget" parent="." instance=ExtResource("3_78wyn")]
+
+[node name="StateMachine" parent="." instance=ExtResource("4_bvdfj")]
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_4h24d")

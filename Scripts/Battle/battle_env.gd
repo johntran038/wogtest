@@ -12,6 +12,7 @@ var heroes = []
 func _ready() -> void:
 	camera_2d.make_current()
 	set_up_heros()
+	set_up_enemies()
 	TurnOrderManager.connect("new_turn", _on_new_turn)
 	TurnOrderManager.start_battle()
 	
@@ -20,7 +21,7 @@ func set_up_heros():
 	for character in GlobalTemp.heroes:
 		var hero
 		if character.type == "generic":
-			hero = load("res://Scenes/Entities/Hero.tscn").instantiate()
+			hero = load("res://Scenes/Entities/Generic/Hero.tscn").instantiate()
 			# set properties
 			hero.name = character.name
 			hero.speed = character.speed
@@ -61,8 +62,12 @@ func set_distance_bar_to_leader(old_leader = null):
 	bar.name = "DistanceBar"
 	leader.add_child(bar)
 
+func set_up_enemies():
+	pass
+	
 
-
+################# Signals #################
+ 
 func _on_new_turn(old_leader) -> void:
 	set_distance_bar_to_leader(old_leader)
 	pass

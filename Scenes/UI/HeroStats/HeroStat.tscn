@@ -14,11 +14,7 @@ bg_color = Color(1, 1, 0, 1)
 
 [node name="HeroStat" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_b1ncp")
 
 [node name="Main UI Frame" type="TextureRect" parent="."]
@@ -68,7 +64,7 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_rnlhj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_y7ub5")
-value = 86.0
+value = 100.0
 show_percentage = false
 
 [node name="MarginContainer3" type="MarginContainer" parent="Main UI Frame/HBoxContainer/VBoxContainer"]
@@ -83,19 +79,4 @@ size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_rnlhj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_aludn")
 max_value = 121.0
-value = 14.0
 show_percentage = false
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(103, 39)
-zoom = Vector2(5.4, 5.4)
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 69.0
-offset_right = 128.0
-offset_bottom = 100.0
-text = "+1"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://bt3i84esun2k5"]
+[gd_scene load_steps=10 format=4 uid="uid://bt3i84esun2k5"]
 
 [ext_resource type="Script" uid="uid://dquxvq1d06ia5" path="res://Scripts/Battle/battle_env.gd" id="1_xydr1"]
 [ext_resource type="Texture2D" uid="uid://dr7gb1ykxcqx4" path="res://Assets/testing123.png" id="2_lhbbc"]
 [ext_resource type="Script" uid="uid://co8g8yfm1q0o3" path="res://Scripts/Battle/battle_map.gd" id="3_cn0b1"]
 [ext_resource type="Script" uid="uid://b4xkkg0g4puex" path="res://Global/turn_order_manager.gd" id="4_j0rcu"]
 [ext_resource type="PackedScene" uid="uid://cl3pi8ag4lb4n" path="res://Scenes/UI/TileSpawner.tscn" id="5_0jppj"]
-[ext_resource type="PackedScene" uid="uid://cuwhb872e8pcd" path="res://Scenes/Entities/Dummy.tscn" id="6_82idp"]
+[ext_resource type="PackedScene" uid="uid://cuwhb872e8pcd" path="res://Scenes/Entities/Generic/Dummy.tscn" id="6_82idp"]
+[ext_resource type="PackedScene" uid="uid://bl4yk5n1e8ldq" path="res://Scenes/UI/HeroStats/HeroStatsFrame.tscn" id="7_lhbbc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bauv2"]
 texture = ExtResource("2_lhbbc")
@@ -151,11 +152,45 @@ map = NodePath("../../BattleMap")
 
 [node name="EnemySpawners" type="Node" parent="."]
 
+[node name="frontline" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(183, 56)
+map = NodePath("../../BattleMap")
+
+[node name="frontline2" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(184, 26)
+map = NodePath("../../BattleMap")
+
+[node name="frontline3" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(183, -7)
+map = NodePath("../../BattleMap")
+
+[node name="frontline4" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(183, 89)
+map = NodePath("../../BattleMap")
+
+[node name="backline" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(151, 56)
+map = NodePath("../../BattleMap")
+
+[node name="backline2" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(149, 26)
+map = NodePath("../../BattleMap")
+
+[node name="backline3" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(151, -7)
+map = NodePath("../../BattleMap")
+
+[node name="backline4" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
+position = Vector2(151, 89)
+map = NodePath("../../BattleMap")
+
 [node name="Button" type="Button" parent="."]
 offset_left = 209.0
 offset_top = -37.0
 offset_right = 254.0
 offset_bottom = -6.0
 text = "Next"
+
+[node name="HeroStatsFrame" parent="." instance=ExtResource("7_lhbbc")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

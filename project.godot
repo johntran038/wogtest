@@ -26,6 +26,16 @@ Global="*res://Global/global.gd"
 
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://Global/": "red",
+"res://Scenes/": "yellow",
+"res://Scripts/": "purple",
+"res://States/": "blue",
+"res://States/StateUtils/": "red"
+}
+
 [input]
 
 up={

@@ -1,39 +1,35 @@
 [gd_scene load_steps=2 format=3 uid="uid://bl4yk5n1e8ldq"]
 
-[ext_resource type="Texture2D" uid="uid://b8vbw7kbk5785" path="res://icon.svg" id="1_wqucd"]
+[ext_resource type="PackedScene" uid="uid://c4jm0nl2vxrff" path="res://Scenes/UI/HeroStats/HeroStat.tscn" id="1_wqucd"]
 
 [node name="HeroStatsFrame" type="CanvasLayer"]
 
 [node name="StatContainer" type="HBoxContainer" parent="."]
-anchors_preset = 12
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -91.0
+offset_top = -64.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 3
 
-[node name="HeroStat" type="HBoxContainer" parent="StatContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-
-[node name="ProfilePicture" type="TextureRect" parent="StatContainer/HeroStat"]
-layout_mode = 2
-texture = ExtResource("1_wqucd")
-expand_mode = 2
-
-[node name="Stats" type="VBoxContainer" parent="StatContainer/HeroStat"]
+[node name="HeroStat" parent="StatContainer" instance=ExtResource("1_wqucd")]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="StatContainer/HeroStat/Stats"]
+[node name="HeroStat2" parent="StatContainer" instance=ExtResource("1_wqucd")]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
-text = "Hero Name"
+size_flags_horizontal = 3
 
-[node name="HealthBar" type="ProgressBar" parent="StatContainer/HeroStat/Stats"]
+[node name="HeroStat3" parent="StatContainer" instance=ExtResource("1_wqucd")]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
-value = 100.0
+size_flags_horizontal = 3
 
-[node name="TempBar" type="ProgressBar" parent="StatContainer/HeroStat/Stats"]
+[node name="HeroStat4" parent="StatContainer" instance=ExtResource("1_wqucd")]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
+size_flags_horizontal = 3
