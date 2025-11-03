@@ -114,7 +114,7 @@ script = ExtResource("4_j0rcu")
 [node name="OccupiedSpace" type="Node" parent="."]
 
 [node name="Dummy" parent="OccupiedSpace" instance=ExtResource("6_82idp")]
-position = Vector2(152, 24)
+position = Vector2(120, -24)
 
 [node name="HeroSpawners" type="Node" parent="."]
 
@@ -153,35 +153,35 @@ map = NodePath("../../BattleMap")
 [node name="EnemySpawners" type="Node" parent="."]
 
 [node name="frontline" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(183, 56)
+position = Vector2(151, 55)
 map = NodePath("../../BattleMap")
 
 [node name="frontline2" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(184, 26)
+position = Vector2(152, 24)
 map = NodePath("../../BattleMap")
 
 [node name="frontline3" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(183, -7)
+position = Vector2(152, -8)
 map = NodePath("../../BattleMap")
 
 [node name="frontline4" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(183, 89)
+position = Vector2(152, 88)
 map = NodePath("../../BattleMap")
 
 [node name="backline" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(151, 56)
+position = Vector2(183, 55)
 map = NodePath("../../BattleMap")
 
 [node name="backline2" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(149, 26)
+position = Vector2(184, 24)
 map = NodePath("../../BattleMap")
 
 [node name="backline3" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(151, -7)
+position = Vector2(184, -8)
 map = NodePath("../../BattleMap")
 
 [node name="backline4" parent="EnemySpawners" node_paths=PackedStringArray("map") instance=ExtResource("5_0jppj")]
-position = Vector2(151, 89)
+position = Vector2(184, 88)
 map = NodePath("../../BattleMap")
 
 [node name="Button" type="Button" parent="."]

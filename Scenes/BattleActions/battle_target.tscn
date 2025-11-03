@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr4udyvn8svgr"]
+[gd_scene load_steps=6 format=3 uid="uid://dr4udyvn8svgr"]
 
 [ext_resource type="Script" uid="uid://bnnwhxmkvh4y6" path="res://Scripts/Battle/battle_target.gd" id="1_ppyn3"]
 [ext_resource type="Script" uid="uid://xmu5unt2sp2g" path="res://Scripts/Battle/UI/battle_option.gd" id="2_2w1hl"]
+[ext_resource type="Texture2D" uid="uid://6irmjhqnjg41" path="res://Assets/exclamation_circle.png" id="3_2w1hl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w1hl"]
+size = Vector2(223.12503, 77.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2w1hl"]
+radius = 34.72868
 
 [node name="BattleTarget" type="Control"]
 z_index = 1
@@ -14,7 +21,8 @@ offset_bottom = 29.0
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_ppyn3")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="."]
+[node name="ButtonDisplay" type="HFlowContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,35 +37,68 @@ alignment = 1
 last_wrap_alignment = 1
 reverse_fill = true
 
-[node name="Basic1" type="Button" parent="HFlowContainer"]
-visible = false
+[node name="ButtonUIBounds" type="Area2D" parent="ButtonDisplay"]
+z_index = 3
+position = Vector2(107.499985, 37.5)
+scale = Vector2(0.9999997, 0.9999997)
+
+[node name="ButtonUICollision" type="CollisionShape2D" parent="ButtonDisplay/ButtonUIBounds"]
+position = Vector2(-1.1920929e-06, 0)
+shape = SubResource("RectangleShape2D_2w1hl")
+
+[node name="Basic1" type="Button" parent="ButtonDisplay"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Basic1"
 script = ExtResource("2_2w1hl")
 
-[node name="Basic2" type="Button" parent="HFlowContainer"]
+[node name="Basic2" type="Button" parent="ButtonDisplay"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Basic2"
 script = ExtResource("2_2w1hl")
 
-[node name="Special1" type="Button" parent="HFlowContainer"]
+[node name="Special1" type="Button" parent="ButtonDisplay"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Special1"
 script = ExtResource("2_2w1hl")
 
-[node name="Special2" type="Button" parent="HFlowContainer"]
+[node name="Special2" type="Button" parent="ButtonDisplay"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Special2"
 script = ExtResource("2_2w1hl")
 
-[connection signal="pressed" from="HFlowContainer/Basic1" to="." method="_on_basic_1_pressed"]
-[connection signal="pressed" from="HFlowContainer/Basic2" to="." method="_on_basic_2_pressed"]
-[connection signal="pressed" from="HFlowContainer/Special1" to="." method="_on_special_1_pressed"]
-[connection signal="pressed" from="HFlowContainer/Special2" to="." method="_on_special_2_pressed"]
+[node name="ExclamationCircle" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(95.00001, 75)
+scale = Vector2(0.29101563, 0.29101563)
+texture = ExtResource("3_2w1hl")
+
+[node name="ExclamationBounds" type="Area2D" parent="ExclamationCircle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExclamationCircle/ExclamationBounds"]
+shape = SubResource("CircleShape2D_2w1hl")
+
+[node name="ExclamationCircle2" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 85.0
+offset_top = 65.0
+offset_right = 149.0
+offset_bottom = 129.0
+scale = Vector2(0.30079645, 0.30079645)
+texture_normal = ExtResource("3_2w1hl")
+
+[connection signal="mouse_exited" from="ButtonDisplay/ButtonUIBounds" to="." method="_on_button_ui_bounds_mouse_exited"]
+[connection signal="pressed" from="ButtonDisplay/Basic1" to="." method="_on_basic_1_pressed"]
+[connection signal="pressed" from="ButtonDisplay/Basic2" to="." method="_on_basic_2_pressed"]
+[connection signal="pressed" from="ButtonDisplay/Special1" to="." method="_on_special_1_pressed"]
+[connection signal="pressed" from="ButtonDisplay/Special2" to="." method="_on_special_2_pressed"]
+[connection signal="mouse_entered" from="ExclamationCircle/ExclamationBounds" to="." method="_on_exclamation_bounds_mouse_entered"]
+[connection signal="pressed" from="ExclamationCircle2" to="." method="_on_exclamation_circle_pressed"]

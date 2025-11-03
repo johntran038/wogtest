@@ -9,7 +9,7 @@ var heroes = [
 	{"name":"joe", "type":"generic", "path": "Hero", "battle_position": "frontline", "speed":25},
 ]
 
-var opponents = [
+var enemies = [
 	{"name":"enemy1", "type":"generic", "battle_position": "frontline", "speed":10},
 	{"name":"enemy2", "type":"generic", "battle_position": "frontline", "speed":70},
 	{"name":"enemy3", "type":"generic", "battle_position": "frontline", "speed":80},
